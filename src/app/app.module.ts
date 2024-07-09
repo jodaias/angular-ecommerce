@@ -29,6 +29,8 @@ import {
   OKTA_CONFIG
 } from '@okta/okta-angular';
 
+import { provideAuth0 } from '@auth0/auth0-angular';
+
 import { OktaAuth } from '@okta/okta-auth-js';
 
 import myAppConfig from './config/my-app-config';
@@ -92,8 +94,19 @@ const routes: Routes = [
     NgxSpinnerModule,
     BrowserAnimationsModule
   ],
-  providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth }},
-              {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
+  providers: [
+    ProductService,
+    { provide: OKTA_CONFIG, useValue: { oktaAuth }},
+    provideAuth0({
+      domain: oktaConfig.issuer.split('/oauth2')[0],
+      clientId: oktaConfig.clientId,
+      authorizationParams: {
+        redirect_uri: window.location.origin + "/login/callback",
+        scopes: ['openid', 'profile', 'email']
+      }
+    }),
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
