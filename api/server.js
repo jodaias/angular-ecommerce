@@ -10,6 +10,7 @@ app.use(cors());
 
 // Import routes
 const productsRoutes = require('./routes/products');
+const productCategoryRoutes = require('./routes/product-category');
 const countriesRoutes = require('./routes/countries');
 const statesRoutes = require('./routes/states');
 const ordersRoutes = require('./routes/orders/orders');
@@ -17,6 +18,9 @@ const checkoutRoutes = require('./routes/checkout');
 
 // Rota base para produtos
 app.use('/api/products', productsRoutes);
+
+// Rota base para categorias de produtos
+app.use('/api/product-category', productCategoryRoutes);
 
 // Rota base para países
 app.use('/api/countries', countriesRoutes);
