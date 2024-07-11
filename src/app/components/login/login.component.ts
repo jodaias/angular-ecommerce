@@ -15,7 +15,7 @@ export class LoginComponent {
 
   oktaSignin: any;
 
-  constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth, public auth: AuthService) {
+  constructor(@Inject(OKTA_AUTH) public oktaAuth: OktaAuth, @Inject(AuthService) public auth: AuthService) {
 
     // this.oktaSignin = new OktaSignIn({
     //   logo: 'assets/images/logo.png',

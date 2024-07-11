@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { shopFormService } from 'src/app/services/shop-form.service';
 import { Country } from 'src/app/common/country';
@@ -42,11 +42,11 @@ export class CheckoutComponent implements OnInit {
   displayError: any = "";
   isLoading: boolean = false;
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(@Inject(FormBuilder) private formBuilder: FormBuilder,
               private shopFormService: shopFormService,
               private cartService: CartService,
               private checkoutService: CheckoutService,
-              private router: Router) { }
+              @Inject(Router) private router: Router) { }
 
   ngOnInit(): void {
 

@@ -17,7 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -26,7 +26,8 @@ import {
   OktaAuthGuard,
   OktaAuthModule,
   OktaCallbackComponent,
-  OKTA_CONFIG
+  OKTA_CONFIG,
+  OktaConfig
 } from '@okta/okta-angular';
 
 import { provideAuth0 } from '@auth0/auth0-angular';
@@ -41,6 +42,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 const oktaConfig = myAppConfig.oidc;
 
 const oktaAuth = new OktaAuth(oktaConfig);
+
+const moduleConfig: OktaConfig = { oktaAuth };
 
 function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
   const router = injector.get(Router);
@@ -89,10 +92,10 @@ const routes: Routes = [
     BrowserModule,
     HttpClientModule,
     NgbModule,
+    BrowserAnimationsModule,
     ReactiveFormsModule,
-    OktaAuthModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule
+    OktaAuthModule.forRoot(moduleConfig)
   ],
   providers: [
     ProductService,
