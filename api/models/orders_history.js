@@ -1,4 +1,4 @@
-const { readOrdersFromFile, writeOrdersToFile, generateUniqueId } = require('../routes/orders/utils/fileUtils');
+const { readOrdersFromFile, writeOrdersToFile, generateUniqueId } = require('../routes/orders/utils/file-utils');
 
 class OrderHistory {
   constructor(orderTrackingNumber, totalPrice, totalQuantity, dateCreated, customerEmail) {
