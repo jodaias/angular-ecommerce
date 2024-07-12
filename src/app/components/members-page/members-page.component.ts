@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { OKTA_AUTH } from '@okta/okta-angular';
+import OktaAuth from '@okta/okta-auth-js';
 
 @Component({
   selector: 'app-members-page',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./members-page.component.css']
 })
 export class MembersPageComponent implements OnInit {
+  user: string = '';
+  constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {}
 
-  constructor() { }
-
-  ngOnInit(): void {
+  async ngOnInit() {
+    const user = await this.oktaAuth.getUser();
+    this.user = JSON.stringify(user, null, 4);
   }
-
 }

@@ -47,8 +47,9 @@ const moduleConfig: OktaConfig = { oktaAuth };
 
 function sendToLoginPage(oktaAuth: OktaAuth, injector: Injector) {
   const router = injector.get(Router);
-
-  router.navigate(['/login']);
+  if(!oktaAuth.isAuthenticated()){
+    router.navigate(['/login']);
+  }
 }
 
 const routes: Routes = [
@@ -104,7 +105,7 @@ const routes: Routes = [
       domain: oktaConfig.issuer.split('/oauth2')[0],
       clientId: oktaConfig.clientId,
       authorizationParams: {
-        redirect_uri: window.location.origin + "/login/callback",
+        redirect_uri: window.location.origin + "/members",
         scopes: ['openid', 'profile', 'email']
       }
     }),
