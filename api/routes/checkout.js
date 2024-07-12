@@ -58,7 +58,7 @@ router.post('/payment-intents', async (req, res) => {
     });
 
     res.json({
-      client_secret: paymentIntent.client_secret,
+      clientSecret: paymentIntent.client_secret,
       customerId: customer.id,
     });
   } catch (error) {

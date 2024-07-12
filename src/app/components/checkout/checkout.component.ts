@@ -223,7 +223,7 @@ export class CheckoutComponent implements OnInit {
       this.checkoutService.createPaymentIntent(this.paymentInfo).subscribe(
         (paymentIntentResponse) => {
           purchase.customer.id = paymentIntentResponse.customerId;
-          this.stripe.confirmCardPayment(paymentIntentResponse.client_secret,
+          this.stripe.confirmCardPayment(paymentIntentResponse.clientSecret,
             {
               payment_method: {
                 card: this.cardElement
