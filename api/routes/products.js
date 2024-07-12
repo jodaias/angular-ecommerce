@@ -18,7 +18,7 @@ function buildPaginatedResponse(data, page, size) {
 // Rotas
 router.get('/:id', (req, res) => {
   const productId = req.params.id;
-  const product = Product.getProductById(productId);
+  const product = Product.getById(productId);
   if (!product) {
     return res.status(404).send('Product not found');
   }
@@ -30,7 +30,7 @@ router.get('/search/findByCategoryId', (req, res) => {
   const page = parseInt(req.query.page, 10) || 0;
   const size = parseInt(req.query.size, 10) || 10;
 
-  const products = Product.getProductsByCategoryId(categoryId, page, size);
+  const products = Product.getByCategoryId(categoryId, page, size);
   const response = buildPaginatedResponse(products, page, size);
   res.send(response);
 });
@@ -40,7 +40,7 @@ router.get('/search/findByNameContaining', (req, res) => {
   const page = parseInt(req.query.page, 10) || 0;
   const size = parseInt(req.query.size, 10) || 10;
 
-  const products = Product.searchProductsByName(name, page, size);
+  const products = Product.searchByName(name, page, size);
   const response = buildPaginatedResponse(products, page, size);
   res.send(response);
 });

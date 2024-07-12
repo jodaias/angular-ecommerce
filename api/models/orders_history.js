@@ -1,8 +1,10 @@
-const { readOrdersFromFile, writeOrdersToFile, generateUniqueId } = require('../routes/orders/utils/file-utils');
+const { readFromFile, writeToFile, generateUniqueId } = require('../shared/utils');
 
 class OrderHistory {
-  constructor(orderTrackingNumber, totalPrice, totalQuantity, dateCreated, customerEmail) {
-    this.id = generateUniqueId();
+  constructor(orderTrackingNumber, totalPrice, totalQuantity, dateCreated, customerEmail, customerId) {
+    const dirname = "../data/orders.json";
+    const orders = readFromFile(dirname);
+    this.id = generateUniqueId(orders);
     this.orderTrackingNumber = orderTrackingNumber;
     this.totalPrice = totalPrice;
     this.totalQuantity = totalQuantity;
@@ -10,16 +12,20 @@ class OrderHistory {
     this.customerEmail = customerEmail;
   }
 
-  static getOrders(){
-    return readOrdersFromFile();
+  static getAll(){
+    const dirname = "../data/orders.json";
+    return readFromFile(dirname);
   }
 
-  static saveOrders(orders){
-    writeOrdersToFile(orders);
+  static save(newOrder){
+    const orders = this.getAll();
+    orders.push(newOrder);
+    const dirname = "../data/orders.json";
+    writeToFile(orders, dirname);
   }
 
-  static findByCustomerEmail(email) {
-    const orders = this.getOrders();
+  static filterByCustomerEmail(email) {
+    const orders = this.getAll();
     return orders.filter(order => order.customerEmail === email);
   }
 }

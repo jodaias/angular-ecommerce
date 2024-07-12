@@ -5,7 +5,7 @@ class ProductCategory {
     this.categoryName = categoryName;
   }
 
-  static getAllProductCategory() {
+  static getAll() {
     return [
       new ProductCategory(1, 'Category 01'),
       new ProductCategory(2, 'Category 02'),
@@ -15,8 +15,8 @@ class ProductCategory {
     ];
   }
 
-  static getProductCategoryById(id) {
-    const productCategories = ProductCategory.getAllProductCategory();
+  static getById(id) {
+    const productCategories = this.getAll();
     return productCategories.find(p => p.id === id);
   }
 }

@@ -216,11 +216,13 @@ export class CheckoutComponent implements OnInit {
 
     this.paymentInfo.amount = totalAmount;
     this.paymentInfo.currency = "EUR";
+    this.paymentInfo.email = purchase.customer.email;
 
     if (!this.checkoutFormGroup.invalid && this.displayError.textContent === "") {
 
       this.checkoutService.createPaymentIntent(this.paymentInfo).subscribe(
         (paymentIntentResponse) => {
+          purchase.customer.id = paymentIntentResponse.customerId;
           this.stripe.confirmCardPayment(paymentIntentResponse.client_secret,
             {
               payment_method: {
@@ -235,9 +237,11 @@ export class CheckoutComponent implements OnInit {
               purchase.order.orderTrackingNumber = result.paymentIntent.id;
               this.checkoutService.placeOrder(purchase).subscribe({
                 next: (response: Order) => {
+                  setTimeout(() => {
+                    alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+                    this.resetCart();
+                  }, 1000);
                   this.isLoading = false;
-                  alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
-                  this.resetCart();
                 },
                 error: (err: any) => {
                   this.isLoading = false;

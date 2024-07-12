@@ -3,6 +3,7 @@ const router = express.Router();
 const stripe = require('stripe')('sk_test_51PaI0ORwXHFy4L8UN61RMPHJIIq2LCkIKmKzEM4h4LmbHJ5mzrlxf69EFv61vvdXIhWExpRmT5jwB0waGZfKQMQs00dxHTAqK6');
 
 const OrderHistory = require('../models/orders_history');
+const PaymentToken = require('../models/payment-token');
 
 router.post('/purchase', (req, res) => {
   const purchase = req.body;
@@ -10,8 +11,8 @@ router.post('/purchase', (req, res) => {
   const email = customer.email;
   const order = purchase.order;
 
-  console.log(order);
 
+  //save new order
   const newOrder = new OrderHistory(
     order.orderTrackingNumber,
     order.totalPrice,
@@ -19,21 +20,32 @@ router.post('/purchase', (req, res) => {
     Date.now(),
     email
   );
+  OrderHistory.save(newOrder);
 
-  const orders = OrderHistory.getOrders();
-  orders.push(newOrder);
-
-  OrderHistory.saveOrders(orders);
+  //save new paymentToken
+  const paymentToken = PaymentToken.findByCustomerEmail(email);
+  if(!paymentToken){
+    const newPaymentToken = new PaymentToken(customer.id, email);
+    PaymentToken.save(newPaymentToken);
+  }
 
   res.status(201).send(newOrder);
 });
 
 // Rota para criar um Payment Intent
 router.post('/payment-intents', async (req, res) => {
-  const { amount, currency } = req.body;
+  const { amount, currency, email } = req.body;
 
   try {
-    const customer = await stripe.customers.create();
+    const paymentToken = PaymentToken.findByCustomerEmail(email);
+
+    var customer = {id: paymentToken?.externalTokenId};
+    console.log('costumer encontrado do db: '+ customer.id);
+    if(!customer.id){
+      customer = await stripe.customers.create();
+      console.log('costumer criado: '+ customer.id);
+    }
+
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amount,
       currency: currency,
@@ -47,6 +59,7 @@ router.post('/payment-intents', async (req, res) => {
 
     res.json({
       client_secret: paymentIntent.client_secret,
+      customerId: customer.id,
     });
   } catch (error) {
     res.status(500).json({ error: error.message });

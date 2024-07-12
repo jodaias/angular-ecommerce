@@ -13,7 +13,7 @@ const productsRoutes = require('./routes/products');
 const productCategoryRoutes = require('./routes/product-category');
 const countriesRoutes = require('./routes/countries');
 const statesRoutes = require('./routes/states');
-const ordersRoutes = require('./routes/orders/orders');
+const ordersRoutes = require('./routes/orders');
 const checkoutRoutes = require('./routes/checkout');
 
 // Rota base para produtos

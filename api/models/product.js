@@ -13,7 +13,7 @@ class Product {
     this.categoryId = categoryId;
   }
 
-  static getAllProducts() {
+  static getAll() {
     return [
       new Product('1', 'SKU001', 'Product 1', 'Description for Product 1', 10.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 100, new Date(), new Date(), 1),
       new Product('2', 'SKU002', 'Product 2', 'Description for Product 2', 19.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 150, new Date(), new Date(), 2),
@@ -28,18 +28,18 @@ class Product {
     ];
   }
 
-  static getProductById(id) {
-    const products = Product.getAllProducts();
+  static getById(id) {
+    const products = this.getAll();
     return products.find(p => p.id === id);
   }
 
-  static getProductsByCategoryId(categoryId, page = 0, size = 10) {
-    const products = Product.getAllProducts().filter(p => p.categoryId === categoryId);
+  static getByCategoryId(categoryId, page = 0, size = 10) {
+    const products = Product.getAll().filter(p => p.categoryId === categoryId);
     const paginatedProducts = products.slice(page * size, (page + 1) * size);
     return paginatedProducts;
   }
 
-  static searchProductsByName(name, page = 0, size = 10) {
+  static searchByName(name, page = 0, size = 10) {
     const products = Product.getAllProducts().filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
     const paginatedProducts = products.slice(page * size, (page + 1) * size);
     return paginatedProducts;

@@ -1,0 +1,17 @@
+[
+  {
+    "id": "e62aeea8-fd34-4c05-9f83-e49cae7452c3",
+    "externalTokenId": "cus_QSfMofMkS2wRor",
+    "customerEmail": "customer1@example.com"
+  },
+  {
+    "id": "5ca90e14-185d-43c7-a0fc-0ee546b4d494",
+    "externalTokenId": "cus_QSfXf4urixuwn7",
+    "customerEmail": "customer2@example.com"
+  },
+  {
+    "id": "428e7546-9a6a-41a9-b7ad-df504ca94e1d",
+    "externalTokenId": "cus_QSfdJgcTZm53Oq",
+    "customerEmail": "customer3@example.com"
+  }
+]
