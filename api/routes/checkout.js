@@ -40,18 +40,14 @@ router.post('/payment-intents', async (req, res) => {
     const paymentToken = PaymentToken.findByCustomerEmail(email);
 
     var customer = {id: paymentToken?.externalTokenId};
-    console.log('costumer encontrado do db: '+ customer.id);
     if(!customer.id){
       customer = await stripe.customers.create();
-      console.log('costumer criado: '+ customer.id);
     }
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amount,
       currency: currency,
       customer: customer.id,
-      // In the latest version of the API, specifying the `automatic_payment_methods` parameter
-      // is optional because Stripe enables its functionality by default.
       automatic_payment_methods: {
         enabled: true,
       },

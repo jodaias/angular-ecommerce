@@ -25,8 +25,6 @@ class PaymentToken {
   static findByCustomerEmail(email) {
     const paymentTokens = this.getAll();
     const paymentToken = paymentTokens.find(paymentToken => paymentToken.customerEmail === email);
-
-    console.log('find ptoken:', paymentToken);
     return paymentToken;
   }
 }

@@ -10,9 +10,7 @@ const readFromFile = (dirname) => {
     if (!fs.existsSync(filePath)) {
       fs.writeFileSync(filePath, JSON.stringify([]));
     }
-    console.log("lendo");
     const data = fs.readFileSync(filePath, 'utf8');
-    console.log("leu: "+data);
     return JSON.parse(data);
   } catch (err) {
     console.error(err);
@@ -24,9 +22,7 @@ const readFromFile = (dirname) => {
 const writeToFile = (entities, dirname) => {
   try {
     const filePath = path.join(__dirname,dirname);
-    console.log("escrevendo")
     fs.writeFileSync(filePath, JSON.stringify(entities, null, 2));
-    console.log("escreveu");
   } catch (err) {
     console.error(err);
   }
