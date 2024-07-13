@@ -22,15 +22,17 @@
             </button>
             <app-search></app-search>
 
-            <app-login-status *ngIf="!isMobile()"></app-login-status>
+            <app-login-status></app-login-status>
 
-            <app-cart-status *ngIf="!isMobile()"></app-cart-status>
+            <app-cart-status></app-cart-status>
           </div>
           <div class="account-wrap"></div>
         </div>
       </div>
     </header>
-    <router-outlet></router-outlet>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
   </div>
   <footer>
     <ul>

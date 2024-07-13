@@ -67,6 +67,10 @@ body {
   align-items: center;
 }
 
+.content-container {
+  margin-bottom: -30px;
+}
+
 footer {
   padding: 10px;
   text-align: center;
