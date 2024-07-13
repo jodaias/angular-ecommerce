@@ -34,13 +34,13 @@ class Product {
   }
 
   static getByCategoryId(categoryId, page = 0, size = 10) {
-    const products = Product.getAll().filter(p => p.categoryId === categoryId);
+    const products = this.getAll().filter(p => p.categoryId === categoryId);
     const paginatedProducts = products.slice(page * size, (page + 1) * size);
     return paginatedProducts;
   }
 
   static searchByName(name, page = 0, size = 10) {
-    const products = Product.getAllProducts().filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
+    const products = this.getAll().filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
     const paginatedProducts = products.slice(page * size, (page + 1) * size);
     return paginatedProducts;
   }
