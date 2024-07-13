@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Product = require('../models/product');
 
-function buildPaginatedResponse(data, page, size) {
+function buildPaginatedResponse(data, page, size, totalElements) {
   return {
     _embedded: {
       products: data,
@@ -10,7 +10,7 @@ function buildPaginatedResponse(data, page, size) {
     page: {
       number: page,
       size: size,
-      totalElements: data.length
+      totalElements: totalElements
     }
   };
 }
@@ -30,8 +30,13 @@ router.get('/search/findByCategoryId', (req, res) => {
   const page = parseInt(req.query.page, 10) || 0;
   const size = parseInt(req.query.size, 10) || 10;
 
-  const products = Product.getByCategoryId(categoryId, page, size);
-  const response = buildPaginatedResponse(products, page, size);
+  const products = Product.getByCategoryId(categoryId);
+  const totalElements = products.length;
+
+  console.log(totalElements);
+  const paginatedProducts = products.slice(page * size, (page + 1) * size);
+
+  const response = buildPaginatedResponse(paginatedProducts, page, size, totalElements);
   res.send(response);
 });
 
@@ -41,7 +46,11 @@ router.get('/search/findByNameContaining', (req, res) => {
   const size = parseInt(req.query.size, 10) || 10;
 
   const products = Product.searchByName(name, page, size);
-  const response = buildPaginatedResponse(products, page, size);
+  const totalElements = products.length;
+  console.log(totalElements);
+  const paginatedProducts = products.slice(page * size, (page + 1) * size);
+
+  const response = buildPaginatedResponse(paginatedProducts, page, size, totalElements);
   res.send(response);
 });
 

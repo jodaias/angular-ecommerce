@@ -24,7 +24,15 @@ class Product {
       new Product('7', 'SKU007', 'Product 7', 'Description for Product 7', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
       new Product('8', 'SKU008', 'Product 8', 'Description for Product 8', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 3),
       new Product('9', 'SKU009', 'Product 9', 'Description for Product 9', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
-      new Product('10', 'SKU010', 'Product 10', 'Description for Product 10', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 5)
+      new Product('10', 'SKU010', 'Product 10', 'Description for Product 11', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 5),
+      new Product('11', 'SKU009', 'Product 11', 'Description for Product 12', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
+      new Product('12', 'SKU009', 'Product 12', 'Description for Product 13', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
+      new Product('13', 'SKU009', 'Product 13', 'Description for Product 14', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
+      new Product('14', 'SKU009', 'Product 14', 'Description for Product 15', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
+      new Product('15', 'SKU009', 'Product 15', 'Description for Product 15', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
+      new Product('16', 'SKU009', 'Product 16', 'Description for Product 16', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 2),
+      new Product('17', 'SKU009', 'Product 17', 'Description for Product 17', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
+      new Product('18', 'SKU009', 'Product 18', 'Description for Product 18', 18.99, 'https://planoscelular.claro.com.br/medias/300Wx300H-productCard-18755-zero.png?context=bWFzdGVyfGltYWdlc3w5NTEzNXxpbWFnZS9wbmd8YURJNUwyaGtNeTg1TnpNeU1EZ3pPVFF4TkRBMkx6TXdNRmQ0TXpBd1NGOXdjbTlrZFdOMFEyRnlaRjh4T0RjMU5WOTZaWEp2TG5CdVp3fDE4N2Y0NWU3OGRkYjc3NzYxYWVjODcwMTViMWNjNDYwYmM0NDI0ZWI0ZmVkYmNlNDJlYmRkMTYyMWFhMjY5YzI', true, 90, new Date(), new Date(), 1),
     ];
   }
 
@@ -33,16 +41,15 @@ class Product {
     return products.find(p => p.id === id);
   }
 
-  static getByCategoryId(categoryId, page = 0, size = 10) {
+  static getByCategoryId(categoryId) {
     const products = this.getAll().filter(p => p.categoryId === categoryId);
-    const paginatedProducts = products.slice(page * size, (page + 1) * size);
-    return paginatedProducts;
+    return products;
   }
 
-  static searchByName(name, page = 0, size = 10) {
+  static searchByName(name) {
     const products = this.getAll().filter(p => p.name.toLowerCase().includes(name.toLowerCase()));
-    const paginatedProducts = products.slice(page * size, (page + 1) * size);
-    return paginatedProducts;
+    // const paginatedProducts = products.slice(page * size, (page + 1) * size);
+    return products;
   }
 }
 

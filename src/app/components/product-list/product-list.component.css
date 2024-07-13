@@ -58,7 +58,7 @@
 }
 
 .footer-pagination .row {
-  align-items: center;
+  align-items: baseline;
 }
 
 .footer-pagination select {
