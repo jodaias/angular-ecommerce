@@ -215,7 +215,7 @@ export class CheckoutComponent implements OnInit {
     const totalAmount = Math.round(this.totalPrice * 100);
 
     this.paymentInfo.amount = totalAmount;
-    this.paymentInfo.currency = "EUR";
+    this.paymentInfo.currency = "BRL";
     this.paymentInfo.email = purchase.customer.email;
 
     if (!this.checkoutFormGroup.invalid && this.displayError.textContent === "") {
