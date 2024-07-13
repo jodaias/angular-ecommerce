@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Product = require('../models/product');
+const ProductService = require('../services/product-services');
 
 function buildPaginatedResponse(data, page, size, totalElements) {
   return {
@@ -18,7 +18,7 @@ function buildPaginatedResponse(data, page, size, totalElements) {
 // Rotas
 router.get('/:id', (req, res) => {
   const productId = req.params.id;
-  const product = Product.getById(productId);
+  const product = ProductService.getById(productId);
   if (!product) {
     return res.status(404).send('Product not found');
   }
@@ -30,10 +30,9 @@ router.get('/search/findByCategoryId', (req, res) => {
   const page = parseInt(req.query.page, 10) || 0;
   const size = parseInt(req.query.size, 10) || 10;
 
-  const products = Product.getByCategoryId(categoryId);
+  const products = ProductService.getByCategoryId(categoryId);
   const totalElements = products.length;
 
-  console.log(totalElements);
   const paginatedProducts = products.slice(page * size, (page + 1) * size);
 
   const response = buildPaginatedResponse(paginatedProducts, page, size, totalElements);
@@ -45,9 +44,8 @@ router.get('/search/findByNameContaining', (req, res) => {
   const page = parseInt(req.query.page, 10) || 0;
   const size = parseInt(req.query.size, 10) || 10;
 
-  const products = Product.searchByName(name, page, size);
+  const products = ProductService.searchByName(name, page, size);
   const totalElements = products.length;
-  console.log(totalElements);
   const paginatedProducts = products.slice(page * size, (page + 1) * size);
 
   const response = buildPaginatedResponse(paginatedProducts, page, size, totalElements);

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ProductCategory = require('../models/product-category');
+const ProductCategoryService = require('../services/product-category-service');
 
 function buildResponse(data) {
   return {
@@ -12,14 +12,14 @@ function buildResponse(data) {
 
 // Rotas
 router.get('/', (req, res) => {
-  const productCategories = ProductCategory.getAll();
+  const productCategories = ProductCategoryService.getAll();
   const response = buildResponse(productCategories);
   res.send(response);
 });
 
 router.get('/:id', (req, res) => {
   const productCategoryId = req.params.id;
-  const productCategory = ProductCategory.getById(productCategoryId);
+  const productCategory = ProductCategoryService.getById(productCategoryId);
   if (!productCategory) {
     return res.status(404).send('Product Category not found');
   }

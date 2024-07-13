@@ -4,21 +4,6 @@ class ProductCategory {
     this.id = id;
     this.categoryName = categoryName;
   }
-
-  static getAll() {
-    return [
-      new ProductCategory(1, 'Category 01'),
-      new ProductCategory(2, 'Category 02'),
-      new ProductCategory(3, 'Category 03'),
-      new ProductCategory(4, 'Category 04'),
-      new ProductCategory(5, 'Category 05')
-    ];
-  }
-
-  static getById(id) {
-    const productCategories = this.getAll();
-    return productCategories.find(p => p.id === id);
-  }
 }
 
 module.exports = ProductCategory;
