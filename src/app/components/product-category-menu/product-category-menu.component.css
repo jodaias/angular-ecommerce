@@ -1,0 +1,41 @@
+.menu-sidebar-content {
+  width: 200px;
+  background-color: #333;
+  height: 100vh;
+  position: fixed;
+  overflow-y: auto;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-sidebar {
+  padding: 20px;
+}
+
+.navbar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-list li {
+  margin-bottom: 10px;
+}
+
+.navbar-list a {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-list a:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.active-link {
+  background-color: #007bff;
+  color: #fff;
+}

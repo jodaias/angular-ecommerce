@@ -1,0 +1,141 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.menu-sidebar.open {
+  left: 0;
+}
+
+.menu-sidebar .logo {
+  padding: 20px;
+  text-align: center;
+}
+
+.menu-sidebar .logo a {
+  display: block;
+}
+
+.menu-sidebar .logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.menu-toggle {
+  display: none;
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2.5em;
+  color: #fff;
+  cursor: pointer;
+}
+
+.header-desktop {
+  position: fixed;
+    top: 0;
+    width: calc(100% - 200px);
+    background-color: #333;
+    color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.header-desktop .section-content {
+  padding: 0;
+}
+
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  padding: 10px;
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 200px);
+  left: 200px;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 1000px) {
+  .page-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menu-sidebar {
+      left: -250px;
+  }
+
+  .menu-sidebar.open {
+      left: 0;
+  }
+
+  .page-container {
+      margin-left: 0;
+  }
+
+  .header-desktop {
+     width: 100%; /* Ajuste conforme necessário para a altura do cabeçalho */
+  }
+
+  .menu-toggle {
+      display: block;
+  }
+
+  .header-wrap {
+      padding-top: 15px;
+      flex-direction: row;
+  }
+
+  footer {
+      width: 100%;
+      left: 0;
+  }
+}

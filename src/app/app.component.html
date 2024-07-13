@@ -1,6 +1,6 @@
 <div class="page-wrapper">
 
-  <aside class="menu-sidebar d-none d-lg-block">
+  <aside class="menu-sidebar d-none d-lg-block" [ngClass]="{ 'open': sidebarOpen }">
     <div class="logo">
       <a routerLink="/products">
         <img src="assets/images/logo.png" alt="shop" class="img-responsive">
@@ -17,27 +17,26 @@
       <div class="section-content section-content-p30">
         <div class="container-fluid">
           <div class="header-wrap">
- 
+            <button class="menu-toggle" (click)="toggleSidebar()">
+              <i class="fas fa-bars"></i>
+            </button>
             <app-search></app-search>
- 
-            <app-login-status></app-login-status>
-            
-            <app-cart-status></app-cart-status>
 
+            <app-login-status *ngIf="!isMobile()"></app-login-status>
+
+            <app-cart-status *ngIf="!isMobile()"></app-cart-status>
           </div>
           <div class="account-wrap"></div>
         </div>
       </div>
     </header>
     <router-outlet></router-outlet>
-
   </div>
+  <footer>
+    <ul>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Contact Us</a></li>
+      <li><a href="#">Help</a></li>
+    </ul>
+  </footer>
 </div>
-
-<footer>
-  <ul>
-    <li><a href="#">About Us</a></li>
-    <li><a href="#">Contact Us</a></li>
-    <li><a href="#">Help</a></li>
-  </ul>
-</footer>
