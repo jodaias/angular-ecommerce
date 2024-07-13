@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "categoryName": "Aventureiros"
+  },
+  {
+    "id": 2,
+    "categoryName": "Camping Acessórios"
+  },
+  {
+    "id": 3,
+    "categoryName": "Desbravadores"
+  },
+  {
+    "id": 4,
+    "categoryName": "Diversos"
+  },
+  {
+    "id": 5,
+    "categoryName": "Jovens"
+  },
+  {
+    "id": 6,
+    "categoryName": "Motociclistas"
+  }
+]

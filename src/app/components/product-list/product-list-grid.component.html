@@ -9,13 +9,13 @@
 
                         <a routerLink="/products/{{ tempProduct.id }}">
                             <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
-                        </a>
 
-                        <a routerLink="/products/{{ tempProduct.id }}">
+                        </a>
+                        <a routerLink="/products/{{ tempProduct.id }}" class="product-title">
                             <h1>{{ tempProduct.name }}</h1>
                         </a>
-                        <div class="price">{{ tempProduct.unitPrice | currency:'USD' }}</div>
-                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Add to cart</button>
+                        <div class="price">{{ tempProduct.unitPrice | currency:'BRL' }}</div>
+                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Comprar</button>
                     </div>
 
                 </div>

@@ -17,6 +17,10 @@
   margin-bottom: 30px;
   text-align: center;
   transition: box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
 }
 
 .product-box:hover {
@@ -26,19 +30,38 @@
 .product-box img {
   width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .product-box h1 {
-  font-size: 1.5em;
-  margin: 15px 0;
+  margin: 1rem 0;
   color: #333;
+  font-size: 1rem;
+}
+
+.img-responsive{
+  max-width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.product-title h1{
+  display: block;
+  max-height: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  white-space: nowrap;
+  margin: 0;
 }
 
 .price {
-  font-size: 1.2em;
+  font-size: 1.2rem;
   color: #007bff;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 
 .btn-primary {

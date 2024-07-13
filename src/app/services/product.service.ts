@@ -17,15 +17,15 @@ export class ProductService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getProduct(theProductId: number): Observable<Product> {
+  getProduct(theProductId: any): Observable<Product> {
 
     const productUrl = `${this.baseUrl}/${theProductId}`;
 
     return this.httpClient.get<Product>(productUrl);
   }
 
-  getProductListPaginate(thePage: number, 
-                         thePageSize: number, 
+  getProductListPaginate(thePage: number,
+                         thePageSize: number,
                          theCategoryId: number): Observable<GetResponseProducts> {
 
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
@@ -50,13 +50,13 @@ export class ProductService {
     return this.getProducts(searchUrl);
   }
 
-  searchProductsPaginate(thePage: number, 
-                        thePageSize: number, 
+  searchProductsPaginate(thePage: number,
+                        thePageSize: number,
                         theKeyword: string): Observable<GetResponseProducts> {
 
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`
                     + `&page=${thePage}&size=${thePageSize}`;
-    
+
     return this.httpClient.get<GetResponseProducts>(searchUrl);
   }
 
