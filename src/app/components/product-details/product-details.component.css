@@ -1,0 +1,32 @@
+.main-content {
+  padding: 30px;
+  margin-top: 70px;
+}
+
+.detail-section {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+}
+
+.back-button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 20px; /* Ajuste conforme necessário */
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff; /* Cor do texto */
+  background-color: #007bff; /* Cor de fundo */
+  border: none;
+  border-radius: 5px; /* Bordas arredondadas */
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado do link */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+}
+
+.back-button:hover {
+  background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}

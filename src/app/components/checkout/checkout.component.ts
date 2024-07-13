@@ -237,11 +237,11 @@ export class CheckoutComponent implements OnInit {
               purchase.order.orderTrackingNumber = result.paymentIntent.id;
               this.checkoutService.placeOrder(purchase).subscribe({
                 next: (response: Order) => {
-                  setTimeout(() => {
-                    alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
-                    this.resetCart();
-                  }, 1000);
                   this.isLoading = false;
+                  alert(`Your order has been received.\nOrder tracking number: ${response.orderTrackingNumber}`);
+                  setTimeout(() => {
+                    this.resetCart();
+                  }, 500);
                 },
                 error: (err: any) => {
                   this.isLoading = false;
