@@ -78,7 +78,7 @@ export class CheckoutComponent implements OnInit {
                                    shopValidators.notOnlyWhitespace]),
         state: new FormControl('', [Validators.required]),
         country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [Validators.required, Validators.minLength(2),
+        zipCode: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8),
                                       shopValidators.notOnlyWhitespace])
       }),
       billingAddress: this.formBuilder.group({
@@ -88,8 +88,7 @@ export class CheckoutComponent implements OnInit {
                                    shopValidators.notOnlyWhitespace]),
         state: new FormControl('', [Validators.required]),
         country: new FormControl('', [Validators.required]),
-        zipCode: new FormControl('', [Validators.required, Validators.minLength(2),
-                                      shopValidators.notOnlyWhitespace])
+        zipCode: new FormControl('', [Validators.required, Validators.minLength(8), Validators.maxLength(8), shopValidators.notOnlyWhitespace])
       }),
       creditCard: this.formBuilder.group({
       })

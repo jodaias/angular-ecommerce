@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Injector, NgModule } from '@angular/core';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
@@ -17,7 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
@@ -96,7 +97,8 @@ const routes: Routes = [
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    OktaAuthModule.forRoot(moduleConfig)
+    OktaAuthModule.forRoot(moduleConfig),
+    NgxMaskDirective
   ],
   providers: [
     ProductService,
@@ -109,7 +111,8 @@ const routes: Routes = [
         scopes: ['openid', 'profile', 'email']
       }
     }),
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
+    provideNgxMask(),
   ],
   bootstrap: [AppComponent]
 })

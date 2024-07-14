@@ -91,3 +91,11 @@
   background-color: #fff;
   cursor: pointer;
 }
+
+@media (max-width: 767px) {
+  .product-title h1 {
+    white-space: normal;
+    line-clamp: unset;
+    -webkit-line-clamp: unset;
+  }
+}
