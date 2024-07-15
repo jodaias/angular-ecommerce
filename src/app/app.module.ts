@@ -35,12 +35,12 @@ import { provideAuth0 } from '@auth0/auth0-angular';
 
 import { OktaAuth } from '@okta/okta-auth-js';
 
-import myAppConfig from './config/my-app-config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { environment } from 'src/environments/environment';
 
-const oktaConfig = myAppConfig.oidc;
+const oktaConfig = environment.oidc;
 
 const oktaAuth = new OktaAuth(oktaConfig);
 

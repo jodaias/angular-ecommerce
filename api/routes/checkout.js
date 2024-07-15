@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')('sk_test_51PaI0ORwXHFy4L8UN61RMPHJIIq2LCkIKmKzEM4h4LmbHJ5mzrlxf69EFv61vvdXIhWExpRmT5jwB0waGZfKQMQs00dxHTAqK6');
+require('dotenv').config();
+
+const stripe = require('stripe')(process.env.STRIPE_API_KEY);
 
 const OrderHistory = require('../models/orders_history');
 const PaymentToken = require('../models/payment-token');
 
 router.post('/purchase', (req, res) => {
+  console.log(process.env.STRIPE_API_KEY);
+
   const purchase = req.body;
   const customer = purchase.customer;
   const email = customer.email;

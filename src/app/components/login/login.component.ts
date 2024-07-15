@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { OKTA_AUTH } from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
-// import myAppConfig from 'src/app/config/my-app-config';
 // import OktaSignIn from '@okta/okta-signin-widget';
+// import { environment } from 'src/environments/environment';
 
 import { AuthService } from '@auth0/auth0-angular';
 
@@ -19,20 +19,20 @@ export class LoginComponent {
 
     // this.oktaSignin = new OktaSignIn({
     //   logo: 'assets/images/logo.png',
-    //   baseUrl: myAppConfig.oidc.issuer.split('/oauth2')[0],
-    //   clientId: myAppConfig.oidc.clientId,
-    //   redirectUri: myAppConfig.oidc.redirectUri,
+    //   baseUrl: environment.oidc.issuer.split('/oauth2')[0],
+    //   clientId: environment.oidc.clientId,
+    //   redirectUri: environment.oidc.redirectUri,
     //   authParams: {
     //     pkce: true,
-    //     issuer: myAppConfig.oidc.issuer,
-    //     scopes: myAppConfig.oidc.scopes
+    //     issuer: environment.oidc.issuer,
+    //     scopes: environment.oidc.scopes
     //   }
     // });
 
     // this.oktaSignin = new OktaSignIn({
-    //   baseUrl: myAppConfig.oidc.issuer.split('/oauth2')[0],
-    //   clientId:  myAppConfig.oidc.clientId,
-    //   redirectUri: myAppConfig.oidc.redirectUri,
+    //   baseUrl: environment.oidc.issuer.split('/oauth2')[0],
+    //   clientId:  environment.oidc.clientId,
+    //   redirectUri: environment.oidc.redirectUri,
     //   logo: 'assets/images/logo.png',
     //   i18n: {
     //     en: {
@@ -40,7 +40,7 @@ export class LoginComponent {
     //     },
     //   },
     //   authClient: oktaAuth,
-    //   useClassicEngine: myAppConfig.widget.USE_CLASSIC_ENGINE === 'true',
+    //   useClassicEngine: environment.widget.USE_CLASSIC_ENGINE === 'true',
     // });
    }
 
@@ -66,7 +66,7 @@ export class LoginComponent {
 
   //   this.oktaSignin.showSignInToGetTokens({
   //     el: '#okta-sign-in-widget',
-  //     scopes: myAppConfig.oidc.scopes
+  //     scopes: environment.oidc.scopes
   //   }).then((tokens: Tokens) => {
   //     // Remove the widget
   //     this.oktaSignin.remove();
