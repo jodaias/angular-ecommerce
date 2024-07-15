@@ -1,85 +1,5 @@
 [
   {
-    "id": "1",
-    "orderTrackingNumber": "TRACK123",
-    "totalPrice": 100.5,
-    "totalQuantity": 2,
-    "dateCreated": "2023-01-01T00:00:00.000Z",
-    "customerEmail": "customer1@example.com"
-  },
-  {
-    "id": "2",
-    "orderTrackingNumber": "TRACK321",
-    "totalPrice": 140.5,
-    "totalQuantity": 2,
-    "dateCreated": "2024-04-01T00:00:00.000Z",
-    "customerEmail": "customer3@example.com"
-  },
-  {
-    "id": "3",
-    "orderTrackingNumber": "TRACK654",
-    "totalPrice": 150.5,
-    "totalQuantity": 2,
-    "dateCreated": "2023-05-01T00:00:00.000Z",
-    "customerEmail": "customer2@example.com"
-  },
-  {
-    "id": "4",
-    "orderTrackingNumber": "TRACK987",
-    "totalPrice": 170.5,
-    "totalQuantity": 2,
-    "dateCreated": "2023-12-01T00:00:00.000Z",
-    "customerEmail": "customer3@example.com"
-  },
-  {
-    "id": "5",
-    "orderTrackingNumber": "TRACK456",
-    "totalPrice": 75.25,
-    "totalQuantity": 1,
-    "dateCreated": "2024-02-01T00:00:00.000Z",
-    "customerEmail": "customer2@example.com"
-  },
-  {
-    "id": "6",
-    "orderTrackingNumber": "TRACK789",
-    "totalPrice": 210.75,
-    "totalQuantity": 3,
-    "dateCreated": "2024-03-01T00:00:00.000Z",
-    "customerEmail": "customer1@example.com"
-  },
-  {
-    "id": "2475970949",
-    "orderTrackingNumber": "TRACK758799877661",
-    "totalPrice": 18.99,
-    "totalQuantity": 1,
-    "dateCreated": 1720445385157,
-    "customerEmail": "customer3@example.com"
-  },
-  {
-    "id": "204836539238",
-    "orderTrackingNumber": "TRACK1958213145971",
-    "totalPrice": 18.99,
-    "totalQuantity": 1,
-    "dateCreated": 1720445816156,
-    "customerEmail": "customer3@example.com"
-  },
-  {
-    "id": "140968101509",
-    "orderTrackingNumber": "TRACK8406684239091",
-    "totalPrice": 18.99,
-    "totalQuantity": 1,
-    "dateCreated": 1720446001836,
-    "customerEmail": "customer3@example.com"
-  },
-  {
-    "id": "34181728240",
-    "orderTrackingNumber": "TRACK6003617975881",
-    "totalPrice": 10.99,
-    "totalQuantity": 1,
-    "dateCreated": 1720449426487,
-    "customerEmail": "customer3@example.com"
-  },
-  {
     "id": "24fb7b57-5c43-4a40-b614-d066c37fdbe8",
     "orderTrackingNumber": "pi_3PaN35RwXHFy4L8U0giPQzld",
     "totalPrice": 10.99,
@@ -326,5 +246,13 @@
     "totalQuantity": 1,
     "dateCreated": 1721008875450,
     "customerEmail": "customer1@example.com"
+  },
+  {
+    "id": "1af69ab0-60bb-4f50-b0ac-ba722c0767dc",
+    "orderTrackingNumber": "pi_3PceGXRwXHFy4L8U0CYXQxxL",
+    "totalPrice": 6,
+    "totalQuantity": 1,
+    "dateCreated": 1721009030201,
+    "customerEmail": "customer3@example.com"
   }
 ]
