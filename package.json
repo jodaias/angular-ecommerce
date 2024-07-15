@@ -27,6 +27,7 @@
     "@okta/okta-signin-widget": "^7.20.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
+    "dotenv": "^16.4.5",
     "ngx-mask": "^16.4.2",
     "ngx-spinner": "^16.0.2",
     "rxjs": "~7.5.0",
