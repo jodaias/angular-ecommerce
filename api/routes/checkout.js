@@ -8,8 +8,6 @@ const OrderHistory = require('../models/orders_history');
 const PaymentToken = require('../models/payment-token');
 
 router.post('/purchase', (req, res) => {
-  console.log(process.env.STRIPE_API_KEY);
-
   const purchase = req.body;
   const customer = purchase.customer;
   const email = customer.email;
