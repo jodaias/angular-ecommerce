@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from 'src/app/services/cart.service';
+import { CurrencyPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-cart-status',
-  templateUrl: './cart-status.component.html',
-  styleUrls: ['./cart-status.component.css']
+    selector: 'app-cart-status',
+    templateUrl: './cart-status.component.html',
+    styleUrls: ['./cart-status.component.css'],
+    standalone: true,
+    imports: [RouterLink, CurrencyPipe]
 })
 export class CartStatusComponent implements OnInit {
 

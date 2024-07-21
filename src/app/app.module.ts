@@ -74,46 +74,44 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ProductListComponent,
-    ProductCategoryMenuComponent,
-    SearchComponent,
-    ProductDetailsComponent,
-    CartStatusComponent,
-    CartDetailsComponent,
-    CheckoutComponent,
-    LoginComponent,
-    LoginStatusComponent,
-    MembersPageComponent,
-    OrderHistoryComponent,
-    LoadingSpinnerComponent
-  ],
-  imports: [
-    RouterModule.forRoot(routes),
-    BrowserModule,
-    HttpClientModule,
-    NgbModule,
-    BrowserAnimationsModule,
-    ReactiveFormsModule,
-    NgxSpinnerModule,
-    OktaAuthModule.forRoot(moduleConfig),
-    NgxMaskDirective
-  ],
-  providers: [
-    ProductService,
-    { provide: OKTA_CONFIG, useValue: { oktaAuth }},
-    provideAuth0({
-      domain: oktaConfig.issuer.split('/oauth2')[0],
-      clientId: oktaConfig.clientId,
-      authorizationParams: {
-        redirect_uri: window.location.origin + "/members",
-        scopes: ['openid', 'profile', 'email']
-      }
-    }),
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true},
-    provideNgxMask(),
-  ],
-  bootstrap: [AppComponent]
+    declarations: [AppComponent],
+    imports: [
+        RouterModule.forRoot(routes),
+        BrowserModule,
+        HttpClientModule,
+        NgbModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule,
+        NgxSpinnerModule,
+        OktaAuthModule.forRoot(moduleConfig),
+        NgxMaskDirective,
+        ProductListComponent,
+        ProductCategoryMenuComponent,
+        SearchComponent,
+        ProductDetailsComponent,
+        CartStatusComponent,
+        CartDetailsComponent,
+        CheckoutComponent,
+        LoginComponent,
+        LoginStatusComponent,
+        MembersPageComponent,
+        OrderHistoryComponent,
+        LoadingSpinnerComponent
+    ],
+    providers: [
+        ProductService,
+        { provide: OKTA_CONFIG, useValue: { oktaAuth } },
+        provideAuth0({
+            domain: oktaConfig.issuer.split('/oauth2')[0],
+            clientId: oktaConfig.clientId,
+            authorizationParams: {
+                redirect_uri: window.location.origin + "/members",
+                scopes: ['openid', 'profile', 'email']
+            }
+        }),
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true },
+        provideNgxMask(),
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

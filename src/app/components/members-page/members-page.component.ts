@@ -3,9 +3,10 @@ import { OKTA_AUTH } from '@okta/okta-angular';
 import OktaAuth from '@okta/okta-auth-js';
 
 @Component({
-  selector: 'app-members-page',
-  templateUrl: './members-page.component.html',
-  styleUrls: ['./members-page.component.css']
+    selector: 'app-members-page',
+    templateUrl: './members-page.component.html',
+    styleUrls: ['./members-page.component.css'],
+    standalone: true
 })
 export class MembersPageComponent implements OnInit {
   user: string = '';

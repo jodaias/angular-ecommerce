@@ -5,13 +5,11 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [
-        AppComponent
-      ],
-      imports: [
+    declarations: [AppComponent],
+    imports: [
         NgbPagination
-      ]
-    }).compileComponents();
+    ]
+}).compileComponents();
   }));
 
   it('should create the app', () => {
