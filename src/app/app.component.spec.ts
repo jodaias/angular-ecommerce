@@ -5,9 +5,9 @@ import { NgbPagination } from '@ng-bootstrap/ng-bootstrap';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-    declarations: [AppComponent],
     imports: [
-        NgbPagination
+        NgbPagination,
+        AppComponent
     ]
 }).compileComponents();
   }));
