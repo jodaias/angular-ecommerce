@@ -1,11 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CartItem } from 'src/app/common/cart-item';
 import { CartService } from 'src/app/services/cart.service';
+import { RouterLink } from '@angular/router';
+import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-cart-details',
-  templateUrl: './cart-details.component.html',
-  styleUrls: ['./cart-details.component.css']
+    selector: 'app-cart-details',
+    templateUrl: './cart-details.component.html',
+    styleUrls: ['./cart-details.component.css'],
+    standalone: true,
+    imports: [NgIf, NgFor, RouterLink, CurrencyPipe]
 })
 export class CartDetailsComponent implements OnInit {
 

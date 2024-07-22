@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
 import { shopFormService } from 'src/app/services/shop-form.service';
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
@@ -12,11 +12,16 @@ import { OrderItem } from 'src/app/common/order-item';
 import { Purchase } from 'src/app/common/purchase';
 import { environment } from 'src/environments/environment';
 import { PaymentInfo } from 'src/app/common/payment-info';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { NgxMaskDirective } from 'ngx-mask';
+import { NgIf, NgFor, CurrencyPipe } from '@angular/common';
 
 @Component({
-  selector: 'app-checkout',
-  templateUrl: './checkout.component.html',
-  styleUrls: ['./checkout.component.css']
+    selector: 'app-checkout',
+    templateUrl: './checkout.component.html',
+    styleUrls: ['./checkout.component.css'],
+    standalone: true,
+    imports: [ReactiveFormsModule, NgIf, NgFor, NgxMaskDirective, LoadingSpinnerComponent, CurrencyPipe]
 })
 export class CheckoutComponent implements OnInit {
 

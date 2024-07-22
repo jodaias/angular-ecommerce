@@ -7,9 +7,10 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: true
 })
 export class LoginComponent {
 
