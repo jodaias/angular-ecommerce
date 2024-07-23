@@ -33,7 +33,7 @@ bootstrapApplication(AppComponent, {
             domain: oktaConfig.issuer.split('/oauth2')[0],
             clientId: oktaConfig.clientId,
             authorizationParams: {
-                redirect_uri: window.location.origin + "/members",
+                redirect_uri: window.location.origin + "/login/callback",
                 scopes: ['openid', 'profile', 'email']
             }
         }),

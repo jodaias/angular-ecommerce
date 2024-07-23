@@ -1,15 +1,14 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
-import { OktaAuth } from '@okta/okta-auth-js';
 import { RouterLink } from '@angular/router';
-import { NgIf } from '@angular/common';
+import { CommonModule, DOCUMENT, NgIf } from '@angular/common';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
     selector: 'app-login-status',
     templateUrl: './login-status.component.html',
     styleUrls: ['./login-status.component.css'],
     standalone: true,
-    imports: [NgIf, RouterLink]
+    imports: [NgIf, RouterLink, CommonModule]
 })
 export class LoginStatusComponent implements OnInit {
 
@@ -18,35 +17,37 @@ export class LoginStatusComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
-  constructor(@Inject(OktaAuthStateService) private oktaAuthService: OktaAuthStateService,
-    @Inject(OKTA_AUTH) private oktaAuth: OktaAuth) { }
+  constructor(public auth: AuthService) { }
 
   ngOnInit(): void {
-
-    this.oktaAuthService.authState$.subscribe(
-      (result) => {
-        this.isAuthenticated = result.isAuthenticated!;
-        this.getUserDetails();
-      }
-    );
+    this.getUserDetails();
   }
 
   getUserDetails() {
-    if (this.isAuthenticated) {
+    this.auth.isAuthenticated$.subscribe((isAuthenticated: any)=>{
+      this.isAuthenticated = isAuthenticated;
+      if(isAuthenticated){
+        this.auth.user$.subscribe(
+          (res: any) => {
+            this.userFullName = res.nickname as string;
 
-      this.oktaAuth.getUser().then(
-        (res) => {
-          this.userFullName = res.name as string;
+            const theEmail = res.email;
+            this.storage.setItem('userEmail', JSON.stringify(theEmail));
 
-          const theEmail = res.email;
+            const theToken = res.sub;
+            this.storage.setItem('userToken', JSON.stringify(theToken));
+          }
+        );
+      }
+    })
 
-          this.storage.setItem('userEmail', JSON.stringify(theEmail));
-        }
-      );
-    }
   }
 
   logout() {
-    this.oktaAuth.signOut();
+    this.auth.logout({
+      openUrl(url) {
+        window.location.replace(url);
+      }
+    });
   }
 }
