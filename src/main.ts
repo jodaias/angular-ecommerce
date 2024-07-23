@@ -13,14 +13,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppComponent } from './app/app.component';
 import { AuthInterceptorService } from './app/services/auth-interceptor.service';
 import { ProductService } from './app/services/product.service';
-import { environment } from './environments/environment';
+import { environment as env } from './environments/environment';
 import { APP_ROUTES } from './app/app.routes';
 
-const oktaConfig = environment.oidc;
+const oktaConfig = env.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 const moduleConfig: OktaConfig = { oktaAuth };
 
-if (environment.production) {
+if (env.production) {
   enableProdMode();
 }
 

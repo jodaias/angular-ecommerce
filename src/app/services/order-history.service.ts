@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
 import { OrderHistory } from '../common/order-history';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { OrderHistory } from '../common/order-history';
 })
 export class OrderHistoryService {
 
-  private orderUrl = environment.MyUrlApi + '/orders';
+  private orderUrl = env.general.baseUrlApi + '/api/orders';
 
   constructor(private httpClient: HttpClient) { }
 

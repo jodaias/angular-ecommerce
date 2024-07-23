@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { Order } from 'src/app/common/order';
 import { OrderItem } from 'src/app/common/order-item';
 import { Purchase } from 'src/app/common/purchase';
-import { environment } from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
 import { PaymentInfo } from 'src/app/common/payment-info';
 import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 import { NgxMaskDirective } from 'ngx-mask';
@@ -40,7 +40,7 @@ export class CheckoutComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
-  stripe = Stripe(environment.stripePublishableKey);
+  stripe = Stripe(env.general.stripePublishableKey);
 
   paymentInfo: PaymentInfo = new PaymentInfo();
   cardElement: any;

@@ -1,0 +1,10 @@
+{
+  "authOidc": {
+    "clientId": "KQ9p2xAE5jque62TxX81wG9vKZ94e32Y",
+    "issuer": "https://dev-q843dhxj5a77724s.us.auth0.com/oauth2/default"
+  },
+  "general": {
+    "baseUrlApi": "http://localhost:3000",
+    "stripePublishableKey": "pk_test_51PaI0ORwXHFy4L8UM7xf5r4eObY4gA22NQ9tboFRDAlOdsEpwznec4nlWMgJ50TI9ICWrB7J8huKmkhj8mPL2Edx00u01VFK7f"
+  }
+}

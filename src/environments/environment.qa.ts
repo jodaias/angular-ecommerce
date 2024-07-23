@@ -1,10 +1,17 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+import { authOidc, general } from '../../env_config.json';
 
 export const environment = {
     production: false,
-    MyUrlApi: "https://localhost:3000/api"
+    general: {
+      stripePublishableKey: general.stripePublishableKey,
+      baseUrlApi: general.baseUrlApi,
+    },
+    oidc: {
+      clientId: authOidc.clientId,
+      issuer: authOidc.clientId,
+      redirectUri: window.location.origin + '/login/callback',
+      scopes: ['openid', 'profile', 'email'],
+    },
   };
 
   /*

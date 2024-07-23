@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environment as env } from 'src/environments/environment';
 import { Purchase } from '../common/purchase';
 import { PaymentInfo } from '../common/payment-info';
 
@@ -10,9 +10,9 @@ import { PaymentInfo } from '../common/payment-info';
 })
 export class CheckoutService {
 
-  private purchaseUrl = environment.MyUrlApi + '/checkout/purchase';
+  private purchaseUrl = env.general.baseUrlApi + '/api/checkout/purchase';
 
-  private paymentIntentUrl = environment.MyUrlApi + '/checkout/payment-intents';
+  private paymentIntentUrl = env.general.baseUrlApi + '/api/checkout/payment-intents';
 
   constructor(private httpClient: HttpClient) { }
 
