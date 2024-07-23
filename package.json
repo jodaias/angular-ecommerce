@@ -24,7 +24,6 @@
     "@ng-bootstrap/ng-bootstrap": "^16.0.0",
     "@okta/okta-angular": "^6.1.0",
     "@okta/okta-auth-js": "^7.7.0",
-    "@okta/okta-signin-widget": "^7.20.0",
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
