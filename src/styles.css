@@ -249,6 +249,10 @@ input.au-input.au-input-xl{
     margin-left:15px
 }
 
+.cart-area i:hover{
+    color:#cacaca;
+}
+
 .total{
     background:#205b8d;
     line-height:43px;
@@ -982,6 +986,9 @@ footer ul li{
     }
     a.logo img{
         width:110px
+    }
+    .login-status-user-info{
+        color:black;
     }
 
     .main-content{
