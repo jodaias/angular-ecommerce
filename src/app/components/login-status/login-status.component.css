@@ -4,6 +4,7 @@
     Change border to 10px
 */
 .security-btn {
+    cursor: pointer;
     position:relative;
     right:0;
     min-width:95px;
@@ -13,6 +14,11 @@
     -moz-border-radius:3px;
     border-radius:43px;
     background:#205b8d
+}
+
+.security-btn:hover {
+    background:#0d4576;
+    border:10px solid #0d4576;
 }
 
 /*

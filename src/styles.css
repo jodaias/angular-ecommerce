@@ -260,6 +260,11 @@ input.au-input.au-input-xl{
     padding-left:17px
 }
 
+.total:hover {
+    background: #0d4779;
+    border: 1px solid #055f83;
+}
+
 .total span{
     display:inline-block;
     background:#fff;
@@ -830,6 +835,11 @@ footer ul li{
         color:#205b8d;
         margin-left:15px
     }
+
+    .cart-area i:hover{
+        color: #0d4e86;
+    }
+
     .header-mobile .header-mobile-bar{
         padding:10px 0;
         background:#fff
@@ -925,7 +935,12 @@ footer ul li{
         color:#205b8d;
         margin-left:15px
     }
-        .header-wrap2{
+
+    .cart-area i:hover{
+        color: #0d4e86;
+    }
+
+    .header-wrap2{
         -webkit-box-pack:justify;
         -webkit-justify-content:space-between;
         -moz-box-pack:justify;
@@ -982,6 +997,11 @@ footer ul li{
         color:#205b8d;
         margin-left:15px
     }
+
+    .cart-area i:hover{
+        color: #0d4e86;
+    }
+
     .footer-pagination{
         text-align:center
     }
@@ -1020,6 +1040,10 @@ footer ul li{
         margin-top:16px;
         color:#03a9f4;
         margin-left:15px
+    }
+
+    .cart-area i:hover{
+        color: #0385c1;
     }
     .total span{
         display:inline-block;
