@@ -1,9 +1,3 @@
-### Sobre o Projeto DBBrindes
-
-O projeto para a DBBrindes visa criar um sistema de informações de produtos que a empresa fabrica. A equipe de desenvolvimento é responsável tanto pelo backend quanto pelo frontend, utilizando um conjunto diversificado de tecnologias. A seguir, um esboço de como poderia ser estruturado um README.md do projeto, com foco em clareza e detalhamento das informações, algo que eu, como avaliador, acharia valioso:
-
----
-
 # DBBrindes Product Information System
 
 Este repositório contém o código-fonte para o sistema de informações de produtos da DBBrindes. Nosso objetivo é fornecer uma interface intuitiva e eficiente para gerenciar e visualizar os produtos fabricados pela empresa.
