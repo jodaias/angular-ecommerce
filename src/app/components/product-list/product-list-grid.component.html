@@ -4,12 +4,11 @@
             <div class="row">
 
                 <div *ngFor="let tempProduct of products" class="col-md-3">
-
                     <div class="product-box">
 
+                        
                         <a routerLink="/products/{{ tempProduct.id }}">
-                            <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
-
+                            <img [src]="tempProduct.imageUrl" class="img-responsive" alt="{{ tempProduct.name }}">
                         </a>
                         <a routerLink="/products/{{ tempProduct.id }}" class="product-title">
                             <h1>{{ tempProduct.name }}</h1>
@@ -22,7 +21,7 @@
                 <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
                     Nenhum produto encontrado
                 </div>
-
+                
             </div>
 
             <div class="footer-pagination">
@@ -32,21 +31,17 @@
                     <div class="col-md-8">
                         <div class="row">
                             <div class="col-md-9">
-
                                 <ngb-pagination [(page)]="thePageNumber"
                                                 [pageSize]="thePageSize"
                                                 [collectionSize]="theTotalElements"
                                                 [maxSize]="5"
                                                 [boundaryLinks]="true"
                                                 (pageChange)="listProducts()">
-
                                 </ngb-pagination>
-
                             </div>
 
                             <div class="col-md-3 mt-2" style="text-align: right;">
                                 <span class="mr-2">Page Size</span>
-
                                 <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
                                     <option>2</option>
                                     <option selected="true">5</option>
@@ -55,10 +50,8 @@
                                     <option>50</option>
                                 </select>
                             </div>
-
                         </div>
                     </div>
-
                 </div>
             </div>
 

@@ -7,7 +7,12 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Serve arquivos estáticos da pasta 'public'
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve arquivos estáticos da pasta 'src/assets/images'
+app.use('/images', express.static(path.join(__dirname, '../../src/assets/images/products')));
 
 app.get('/', (req, res) => {
   res.render('index');

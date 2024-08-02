@@ -2,6 +2,7 @@ const puppeteer = require('puppeteer');
 const axios = require('axios');
 const fs = require('fs-extra');
 const path = require('path');
+const { v4: uuidv4 } = require('uuid');
 const { URL } = require('url');
 
 const downloadImagesAndDescriptions = async (categoryUrl, categoryName) => {
@@ -30,17 +31,17 @@ const downloadImagesAndDescriptions = async (categoryUrl, categoryName) => {
       const filePath = parsedUrl.pathname;
       const fileName = path.basename(filePath, path.extname(filePath));
       const timestamp = Date.now();
-      const newFileName = `${categoryName}_${fileName}_${timestamp}_${index}.png`;
-      const downloadPath = path.resolve(__dirname, 'downloads', categoryName, newFileName);
-
+      const newFileName = `${fileName}_${timestamp}.png`;
+      const downloadPath = path.resolve(__dirname, '../../src/assets/images/products', categoryName.toLowerCase(), newFileName);
+  
       await fs.ensureDir(path.dirname(downloadPath));
-
+  
       const response = await axios({
         method: 'GET',
         url: imageUrl,
         responseType: 'stream'
       });
-
+  
       response.data.pipe(fs.createWriteStream(downloadPath))
         .on('finish', () => {
           console.log(`Imagem salva como ${newFileName}`);
@@ -48,18 +49,22 @@ const downloadImagesAndDescriptions = async (categoryUrl, categoryName) => {
         .on('error', (e) => {
           console.error('Erro ao salvar a imagem:', e);
         });
-
+  
       return newFileName;
     } catch (error) {
       console.error('Erro ao baixar a imagem:', error);
     }
   };
 
-  const getDescription = async (productPageUrl) => {
+  const getProductDetails = async (productPageUrl) => {
     try {
       const productPage = await browser.newPage();
       await productPage.goto(productPageUrl);
       await productPage.waitForSelector('.caracs');
+
+      const productName = await productPage.evaluate(() => {
+        return document.querySelector('.produto-nome')?.innerText.trim();
+      });
 
       const description = await productPage.evaluate(() => {
         const descriptions = Array.from(document.querySelectorAll('.caracs .desc')).map(desc => {
@@ -71,21 +76,59 @@ const downloadImagesAndDescriptions = async (categoryUrl, categoryName) => {
       });
 
       await productPage.close();
-      return description;
+      return { productName, description };
     } catch (error) {
-      console.error('Erro ao obter descrição:', error);
+      console.error('Erro ao obter detalhes do produto:', error);
     }
+  };
+
+  const updateJsonFiles = async (categoryName, productName, productDescription, imageName) => {
+    const categoriesFilePath = path.resolve('C:/dev/works/srDomingos/angular-ecommerce/api/data/product-categories.json');
+    const productsFilePath = path.resolve('C:/dev/works/srDomingos/angular-ecommerce/api/data/products.json');
+    
+    const categories = await fs.readJson(categoriesFilePath);
+    const products = await fs.readJson(productsFilePath);
+  
+    let category = categories.find(cat => cat.categoryName === categoryName);
+    if (!category) {
+      const newCategory = { id: categories.length + 1, categoryName };
+      categories.push(newCategory);
+      category = newCategory;
+    }
+  
+    const newProduct = {
+      id: uuidv4(),
+      sku: `SKU${Math.floor(Math.random() * 100000)}`,
+      name: productName || `${categoryName} Product`,
+      description: productDescription['Descrição'] || 'Descrição não disponível',
+      unitPrice: 0,
+      imageUrl: `assets/images/products/${categoryName.toLowerCase()}/${imageName}`, // Caminho relativo
+      active: true,
+      unitsInStock: 0,
+      dateCreated: new Date().toISOString(),
+      lastUpdated: new Date().toISOString(),
+      categoryId: category.id
+    };
+  
+    products.push(newProduct);
+  
+    await fs.writeJson(categoriesFilePath, categories, { spaces: 2 });
+    await fs.writeJson(productsFilePath, products, { spaces: 2 });
+  
+    console.log('Arquivos JSON atualizados com sucesso!');
   };
 
   for (const [index, product] of products.entries()) {
     const imageName = await downloadImage(product.imageUrl, index);
-    const description = await getDescription(product.link);
+    const { productName, description } = await getProductDetails(product.link);
     
     if (imageName && description) {
       const jsonFileName = imageName.replace('.png', '.json');
-      const jsonFilePath = path.resolve(__dirname, 'downloads', categoryName, jsonFileName);
+      const jsonFilePath = path.resolve(__dirname, '../../src/assets/images/products', categoryName.toLowerCase(), jsonFileName);
       await fs.writeJson(jsonFilePath, description, { spaces: 2 });
       console.log(`JSON salvo como ${jsonFileName}`);
+      
+      await updateJsonFiles(categoryName, productName, description, imageName);
     }
   }
 
